@@ -1,0 +1,7 @@
+# Book settings
+title: Pythonomics
+author: Max Ghenis
+
+latex:
+  latex_documents:
+    targetname: book.tex
