@@ -1,0 +1,1602 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pythonomics: Intro to economic analysis in Python &#8212; Pythonomics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Pythonomics" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Pythonomics</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="intro.html">Welcome to Pythonomics</a>
+  </li>
+  <li class="active">
+    <a href="">Pythonomics: Intro to economic analysis in Python</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+                    class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="_sources/pythonomics_solution.ipynb"><button type="button"
+                        class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                        data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                    onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#how-to-use-this-notebook" class="nav-link">How to use this notebook</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#python-basics" class="nav-link">Python basics</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#setup" class="nav-link">Setup</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#aliases" class="nav-link">Aliases</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#loading-modules-and-functions" class="nav-link">Loading modules and functions</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#vector-operations-in-numpy-and-pandas" class="nav-link">Vector operations in numpy and pandas</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#exploratory-analysis-in-pandas" class="nav-link">Exploratory analysis in pandas</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#working-with-pandas-dataframes" class="nav-link">Working with pandas DataFrames</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#filtering-data" class="nav-link">Filtering data</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#regressions-in-statsmodels" class="nav-link">Regressions in statsmodels</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#publication-grade-regression-tables-in-stargazer" class="nav-link">Publication-grade regression tables in stargazer</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pythonomics-intro-to-economic-analysis-in-python">
+<h1>Pythonomics: Intro to economic analysis in Python<a class="headerlink" href="#pythonomics-intro-to-economic-analysis-in-python" title="Permalink to this headline">¶</a></h1>
+<p><em>Author: Max Ghenis (mghenis&#64;gmail.com)</em></p>
+<p><strong>Topics:</strong></p>
+<ul class="simple">
+<li><p>Loading data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></li>
+<li><p>Preprocessing data</p></li>
+<li><p>Merging data</p></li>
+<li><p>Regression with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></p></li>
+<li><p>Output to <span class="math notranslate nohighlight">\(\LaTeX\)</span> with <code class="docutils literal notranslate"><span class="pre">stargazer</span></code></p></li>
+</ul>
+<p><strong>Case study:</strong> Effect of Alaska Permanent Fund Dividend on poverty rate,
+as measured by the Supplemental Poverty Measure.
+Difference in differences research design.</p>
+<div class="section" id="how-to-use-this-notebook">
+<h2>How to use this notebook<a class="headerlink" href="#how-to-use-this-notebook" title="Permalink to this headline">¶</a></h2>
+<p>This is called <strong>Google Colab</strong>, a cloud <strong>Jupyter notebook</strong> editor that
+also connects to Google Drive, supports real-time collaboration and comments, etc.</p>
+<p>Notebooks are organized into cells, specifically <strong>Markdown cells</strong> (like this one, also accepts <code class="docutils literal notranslate"><span class="pre">$\LaTeX$</span></code>) and <strong>Code cells</strong> (like the cell below with the <code class="docutils literal notranslate"><span class="pre">[1]</span></code> at the left.</p>
+<p>You can run and edit the notebook in Playground mode,
+or make a copy to ensure your edits are saved.</p>
+<p>Code cells can take any Python code and show the result (for simple commands,
+you don’t need to <code class="docutils literal notranslate"><span class="pre">print</span></code>, it just shows up).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try getting your name to show up in the two cells below (note that strings require quotes, either single or double will do).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a comment. Type your name in quotes below to create the variable.</span>
+<span class="n">my_name</span> <span class="o">=</span> <span class="s1">&#39;max&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now start typing <code class="docutils literal notranslate"><span class="pre">my_name</span></code>, but press Tab after <code class="docutils literal notranslate"><span class="pre">my</span></code>. Colab autocompletes known variables as well as function documentation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;max&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now add a code cell below this to create and print a variable called <code class="docutils literal notranslate"><span class="pre">my_hometown</span></code> with your hometown as a string; cells can have multiple lines of code each.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_hometown</span> <span class="o">=</span> <span class="s1">&#39;Oxnard&#39;</span>
+<span class="n">my_hometown</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Oxnard&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="python-basics">
+<h2>Python basics<a class="headerlink" href="#python-basics" title="Permalink to this headline">¶</a></h2>
+<p><strong>Lists</strong> are defined with square brackets, e.g. <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">-4]</span></code> and <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code>.</p>
+<p>This is similar to <code class="docutils literal notranslate"><span class="pre">c(1,</span> <span class="pre">3,</span> <span class="pre">4)</span></code> and <code class="docutils literal notranslate"><span class="pre">c('a',</span> <span class="pre">'b',</span> <span class="pre">'c')</span></code> in <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
+<p><em>You can also put mismatching data types in Python lists,
+which makes them similar to R lists,
+but in most cases you won’t need to do that.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">l</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can get a specific element of a list using <code class="docutils literal notranslate"><span class="pre">list[element_number]</span></code> – but note Python numbering starts at zero!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>This means it can only be accessed from elements <code class="docutils literal notranslate"><span class="pre">l[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">l[1]</span></code>, and <code class="docutils literal notranslate"><span class="pre">l[2]</span></code>.</p>
+<p>We can test whether <code class="docutils literal notranslate"><span class="pre">l[3]</span></code> throws an error using the following code
+(this also allows the notebook to continue running, where leaving it as an
+error would halt it).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;List l cannot be accessed as l[3]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>List l cannot be accessed as l[3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can apply functions to each element of a list with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, a technique called <em>list comprehension</em>.</p>
+<p><em>We’ll learn more data-analysis ways to do this soon.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[2, 6, 8]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Python is a vast general-purpose language, so you have to use packages relevant to your field of study.</p>
+<p>For tabular data analysis, like what you’d do in R or Python, always
+load the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> packages.
+<code class="docutils literal notranslate"><span class="pre">pandas</span></code> gives access to R-style <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s, and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is
+the vector-math backbone for <code class="docutils literal notranslate"><span class="pre">pandas</span></code> that can also be used for
+random number generation, matrix math, logical operations, and more.</p>
+<p><img alt="" src="https://miro.medium.com/max/800/1*9IU5fBzJisilYjRAi-f55Q.png" /></p>
+<p>(<code class="docutils literal notranslate"><span class="pre">pandas</span></code> actually gets its name from <code class="docutils literal notranslate"><span class="pre">pan</span></code>el <code class="docutils literal notranslate"><span class="pre">da</span></code>ta)</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">import</span></code> keyword loads packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.718281828459045
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="aliases">
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">¶</a></h3>
+<p>When loading a package, you can give it an <strong>alias</strong> with the <code class="docutils literal notranslate"><span class="pre">as</span></code> keyword to make it more concise to load.</p>
+<p>Widely used packages have canonical aliases, and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> have been
+de facto assigned <code class="docutils literal notranslate"><span class="pre">pd</span></code> and <code class="docutils literal notranslate"><span class="pre">np</span></code>, respectively. Try this out here:</p>
+<p>(Also try hitting Tab after the <code class="docutils literal notranslate"><span class="pre">as</span></code>!)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you can call functions and constants in the packages using the shorter aliases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-modules-and-functions">
+<h3>Loading modules and functions<a class="headerlink" href="#loading-modules-and-functions" title="Permalink to this headline">¶</a></h3>
+<p><em>Note: Not needed for today’s class, but will be good to know for viewing other Python code.</em></p>
+<p>Some packages have multiple <em>modules</em>, or sets of related functions, which can be loaded separately. For example, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>’s <code class="docutils literal notranslate"><span class="pre">random</span></code> module contains functions
+for generating random numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can even import specific functions from packages or modules.
+For example, <code class="docutils literal notranslate"><span class="pre">randn</span></code> generates numbers from the standard normal distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now each of these three function calls does the same thing:
+generate 10 random numbers from the standard normal distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 0.47424344,  0.19053362, -0.71664784, -0.01791951,  0.592452  ,
+        2.16598529,  0.09118215,  0.77634684,  0.43959248,  0.3450288 ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([-1.18351661,  0.301056  , -0.05687383, -1.23490662, -0.55099681,
+        0.0052964 , -0.92329022, -0.87117609, -0.59551334, -0.34523735])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type out the third, using the np prefix from before.</span>
+<span class="c1"># Also try using tab after the dots for code completion and and open parenthesis</span>
+<span class="c1"># for function documentation.</span>
+<span class="c1"># ANSWER:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([-0.70231322,  0.40083712,  1.75805552, -1.33277897, -0.5209896 ,
+        0.19121448, -0.55535564, -1.95904585, -0.53284146, -1.06098545])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vector-operations-in-numpy-and-pandas">
+<h2>Vector operations in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#vector-operations-in-numpy-and-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Vector/array operations are integral to scientific computing in Python. Like <code class="docutils literal notranslate"><span class="pre">gen</span></code> in Stata and <code class="docutils literal notranslate"><span class="pre">apply</span></code> in R, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> include rich
+sets of vectorized functions to run common code over records quickly.</p>
+<p>One way to take advantage of this is to pass lists to <code class="docutils literal notranslate"><span class="pre">numpy</span></code> functions; this often produces a new <code class="docutils literal notranslate"><span class="pre">array</span></code> with the same number of elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1.        , 2.71828183, 7.3890561 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Arrays can be passed into other functions, and aggregated!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>11.107337927389695
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> If Jamie invests $1 per year and gets 5% return each year, how much will they have after 3 years?</p>
+<p>Here’s a brute-force way, but how can you use lists?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.310125
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try to do the same more concisely by passing a list to `np.power`.</span>
+<span class="c1"># ANSWER:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.310125
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exploratory-analysis-in-pandas">
+<h2>Exploratory analysis in <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#exploratory-analysis-in-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Time for real data! Let’s import data to use in the regression analysis, using the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function. <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> takes local file paths or URLs, and automatically decompresses files.</p>
+<p>Since this is a large file, we’ll start by saving the raw file, and then creating a copy to work with. If you mess something up with <code class="docutils literal notranslate"><span class="pre">cps</span></code>, just re-run starting with the <code class="docutils literal notranslate"><span class="pre">cps</span> <span class="pre">=</span> </code> cell to avoid re-downloading it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/UBICenter/pfd_spm/raw/master/data/spm_state.csv.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span> <span class="o">=</span> <span class="n">cps_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># This creates a real copy (not a reference).</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cps</span></code> is now a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object.</p>
+<p>We can see the first and last five records by just printing the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>statefip</th>
+      <th>age</th>
+      <th>female</th>
+      <th>poor</th>
+      <th>w</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1967</td>
+      <td>39</td>
+      <td>40</td>
+      <td>True</td>
+      <td>0</td>
+      <td>1178.96</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1967</td>
+      <td>70</td>
+      <td>29</td>
+      <td>False</td>
+      <td>0</td>
+      <td>1375.98</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1967</td>
+      <td>70</td>
+      <td>79</td>
+      <td>True</td>
+      <td>0</td>
+      <td>1226.91</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1967</td>
+      <td>70</td>
+      <td>58</td>
+      <td>False</td>
+      <td>0</td>
+      <td>1385.21</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1967</td>
+      <td>70</td>
+      <td>2</td>
+      <td>True</td>
+      <td>0</td>
+      <td>1304.57</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8192119</th>
+      <td>2015</td>
+      <td>20</td>
+      <td>3</td>
+      <td>True</td>
+      <td>0</td>
+      <td>964.95</td>
+    </tr>
+    <tr>
+      <th>8192120</th>
+      <td>2015</td>
+      <td>20</td>
+      <td>40</td>
+      <td>True</td>
+      <td>0</td>
+      <td>1045.34</td>
+    </tr>
+    <tr>
+      <th>8192121</th>
+      <td>2015</td>
+      <td>20</td>
+      <td>16</td>
+      <td>False</td>
+      <td>0</td>
+      <td>1001.97</td>
+    </tr>
+    <tr>
+      <th>8192122</th>
+      <td>2015</td>
+      <td>20</td>
+      <td>5</td>
+      <td>True</td>
+      <td>0</td>
+      <td>1056.78</td>
+    </tr>
+    <tr>
+      <th>8192123</th>
+      <td>2015</td>
+      <td>15</td>
+      <td>56</td>
+      <td>True</td>
+      <td>0</td>
+      <td>325.59</td>
+    </tr>
+  </tbody>
+</table>
+<p>8192124 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>This microdata file is a combination of (a) historical Supplemental Poverty Measure (SPM) estimates from the Columbia Center on Poverty and Social Policy, and (b) demographics from the Current Population Survey March Supplement (ASEC) files, from IPUMS. It has the following columns:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">year</span></code></strong>: Year; covers 1967 to 2015. (Reporting year, not the following year the survey was administered, as CPS IPUMS defines <code class="docutils literal notranslate"><span class="pre">year</span></code>.)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">statefip</span></code></strong>: FIPS code for the respondent’s US state of residence.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">age</span></code></strong>: Respondent age.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">female</span></code></strong>: Whether respondent is female.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">poor</span></code></strong>: Whether the respondent’s SPM unit (comparable to household) has resources below their SPM poverty threshold.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">w</span></code></strong>: Respondent’s survey weight.</p></li>
+</ul>
+<p>We can see summary statistics with the <code class="docutils literal notranslate"><span class="pre">describe</span></code> command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>statefip</th>
+      <th>age</th>
+      <th>poor</th>
+      <th>w</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>8.192124e+06</td>
+      <td>8.192124e+06</td>
+      <td>8.192124e+06</td>
+      <td>8.192124e+06</td>
+      <td>8.192070e+06</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1.992533e+03</td>
+      <td>3.098111e+01</td>
+      <td>3.372562e+01</td>
+      <td>1.755193e-01</td>
+      <td>1.520348e+03</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.421549e+01</td>
+      <td>1.932314e+01</td>
+      <td>2.207534e+01</td>
+      <td>3.804107e-01</td>
+      <td>8.664273e+02</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.967000e+03</td>
+      <td>1.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1.980000e+03</td>
+      <td>1.500000e+01</td>
+      <td>1.500000e+01</td>
+      <td>0.000000e+00</td>
+      <td>9.870200e+02</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.993000e+03</td>
+      <td>3.100000e+01</td>
+      <td>3.200000e+01</td>
+      <td>0.000000e+00</td>
+      <td>1.447940e+03</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.005000e+03</td>
+      <td>4.200000e+01</td>
+      <td>5.000000e+01</td>
+      <td>0.000000e+00</td>
+      <td>1.880740e+03</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.015000e+03</td>
+      <td>9.900000e+01</td>
+      <td>9.900000e+01</td>
+      <td>1.000000e+00</td>
+      <td>1.998275e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><em><strong>Interpretation question:</strong></em> What share of <em>records</em> is poor in the dataset? Does this represent the average poverty rate over the period?</p>
+<p>ANSWER: 17.55% of records are poor (mean of <code class="docutils literal notranslate"><span class="pre">poor</span></code>).
+The average poverty rate will differ, as it will have to be weighted by <code class="docutils literal notranslate"><span class="pre">w</span></code>.</p>
+<div class="section" id="working-with-pandas-dataframes">
+<h3>Working with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s<a class="headerlink" href="#working-with-pandas-dataframes" title="Permalink to this headline">¶</a></h3>
+<p>To get a single column from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, use <code class="docutils literal notranslate"><span class="pre">df['column_name']</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0          1967
+1          1967
+2          1967
+3          1967
+4          1967
+           ... 
+8192119    2015
+8192120    2015
+8192121    2015
+8192122    2015
+8192123    2015
+Name: year, Length: 8192124, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can manipulate these directly–no <code class="docutils literal notranslate"><span class="pre">for</span></code> loops needed. For example, here’s a column representing <span class="math notranslate nohighlight">\(age^2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0          1600
+1           841
+2          6241
+3          3364
+4             4
+           ... 
+8192119       9
+8192120    1600
+8192121     256
+8192122      25
+8192123    3136
+Name: age, Length: 8192124, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The syntax to add or revise a column is the same: <code class="docutils literal notranslate"><span class="pre">df['column']</span> <span class="pre">=</span> <span class="pre">values</span></code> (no <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> like in <code class="docutils literal notranslate"><span class="pre">R</span></code>!).</p>
+<p>Since the treatment group is individuals in Alaska, we’ll need a flag to identify them. Noting that Alaska is FIPS code 2, let’s add this here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span><span class="p">[</span><span class="s1">&#39;alaska&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cps</span><span class="p">[</span><span class="s1">&#39;statefip&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select multiple columns, use double-brackets:
+<code class="docutils literal notranslate"><span class="pre">df[['col1',</span> <span class="pre">'col2']]</span></code>. This is really telling <code class="docutils literal notranslate"><span class="pre">pandas</span></code>,
+“I’m giving you a list of column names, give me a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>
+with those columns.”</p>
+<p>Let’s use that to check how our <code class="docutils literal notranslate"><span class="pre">alaska</span></code> assignment worked.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span><span class="p">[[</span><span class="s1">&#39;statefip&#39;</span><span class="p">,</span> <span class="s1">&#39;alaska&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>statefip</th>
+      <th>alaska</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>70</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>70</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>70</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>70</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8192119</th>
+      <td>20</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8192120</th>
+      <td>20</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8192121</th>
+      <td>20</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8192122</th>
+      <td>20</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8192123</th>
+      <td>15</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>8192124 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>That’s not so helpful, given the number of rows.</p>
+<p>Instead a good way to check is the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function.
+We don’t have time to go through the full power of <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, but let’s see one example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;alaska&#39;</span><span class="p">)[</span><span class="s1">&#39;statefip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>alaska
+False    [39, 70, 42, 9, 36, 34, 29, 17, 71, 72, 73, 18...
+True                                                   [2]
+Name: statefip, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>…and one more fun one to show inline Jupyter plots.</p>
+<p><em>Note: This is not the poverty rate since it’s not weighted!</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)[</span><span class="s1">&#39;poor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ee20dba64d0&gt;
+</pre></div>
+</div>
+<img alt="_images/pythonomics_solution_59_1.png" src="_images/pythonomics_solution_59_1.png" />
+</div>
+</div>
+<p><em><strong>Exercise:</strong></em> Add three new columns to <code class="docutils literal notranslate"><span class="pre">cps</span></code> for the regression:</p>
+<ol class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">age2</span></code></strong> for <span class="math notranslate nohighlight">\(age^2\)</span></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">post</span></code></strong> for the post period (the Permanent Fund Dividend was introduced in 1982)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">alaska_post</span></code></strong> for the DD variable (hint: since those are both <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code> rather than 0/1, use the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator instead of <code class="docutils literal notranslate"><span class="pre">*</span></code>)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add age2, post, and alaska_post here:</span>
+<span class="c1"># ANSWER:</span>
+<span class="n">cps</span><span class="p">[</span><span class="s1">&#39;age2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cps</span><span class="o">.</span><span class="n">age</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">cps</span><span class="p">[</span><span class="s1">&#39;post&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cps</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;=</span> <span class="mi">1982</span>
+<span class="n">cps</span><span class="p">[</span><span class="s1">&#39;alaska_post&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cps</span><span class="o">.</span><span class="n">post</span> <span class="o">&amp;</span> <span class="n">cps</span><span class="o">.</span><span class="n">alaska</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering-data">
+<h3>Filtering data<a class="headerlink" href="#filtering-data" title="Permalink to this headline">¶</a></h3>
+<p>The last thing we want to do before running regressions is
+filtering <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s. Doing this is similar to selecting specific columns, but in this case we want to pass a <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code> vector to the square brackets. For example, here are all the people in Alaska:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps</span><span class="p">[</span><span class="n">cps</span><span class="p">[</span><span class="s1">&#39;alaska&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>statefip</th>
+      <th>age</th>
+      <th>female</th>
+      <th>poor</th>
+      <th>w</th>
+      <th>alaska</th>
+      <th>age2</th>
+      <th>post</th>
+      <th>alaska_post</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1352508</th>
+      <td>1976</td>
+      <td>2</td>
+      <td>49</td>
+      <td>False</td>
+      <td>0</td>
+      <td>135.30</td>
+      <td>True</td>
+      <td>2401</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1352509</th>
+      <td>1976</td>
+      <td>2</td>
+      <td>10</td>
+      <td>True</td>
+      <td>0</td>
+      <td>135.57</td>
+      <td>True</td>
+      <td>100</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1352510</th>
+      <td>1976</td>
+      <td>2</td>
+      <td>12</td>
+      <td>True</td>
+      <td>0</td>
+      <td>134.71</td>
+      <td>True</td>
+      <td>144</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1352511</th>
+      <td>1976</td>
+      <td>2</td>
+      <td>16</td>
+      <td>True</td>
+      <td>0</td>
+      <td>132.84</td>
+      <td>True</td>
+      <td>256</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1352512</th>
+      <td>1976</td>
+      <td>2</td>
+      <td>17</td>
+      <td>False</td>
+      <td>0</td>
+      <td>160.27</td>
+      <td>True</td>
+      <td>289</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8067492</th>
+      <td>2015</td>
+      <td>2</td>
+      <td>64</td>
+      <td>False</td>
+      <td>0</td>
+      <td>427.64</td>
+      <td>True</td>
+      <td>4096</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>8067493</th>
+      <td>2015</td>
+      <td>2</td>
+      <td>58</td>
+      <td>True</td>
+      <td>0</td>
+      <td>197.37</td>
+      <td>True</td>
+      <td>3364</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>8067494</th>
+      <td>2015</td>
+      <td>2</td>
+      <td>23</td>
+      <td>False</td>
+      <td>0</td>
+      <td>478.72</td>
+      <td>True</td>
+      <td>529</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>8067495</th>
+      <td>2015</td>
+      <td>2</td>
+      <td>22</td>
+      <td>False</td>
+      <td>0</td>
+      <td>501.55</td>
+      <td>True</td>
+      <td>484</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>8067496</th>
+      <td>2015</td>
+      <td>2</td>
+      <td>52</td>
+      <td>True</td>
+      <td>0</td>
+      <td>223.98</td>
+      <td>True</td>
+      <td>2704</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>93860 rows × 10 columns</p>
+</div></div></div>
+</div>
+<p>We could do a DD with the full dataset, but
+we’d probably want year fixed effects if we did. Instead, let’s just filter for first year of the Permanent Fund Dividend, and the year before that (1981 and 1982), using the <code class="docutils literal notranslate"><span class="pre">isin</span></code> function, and make it a new <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps8182</span> <span class="o">=</span> <span class="n">cps</span><span class="p">[</span><span class="n">cps</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1981</span><span class="p">,</span> <span class="mi">1982</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regressions-in-statsmodels">
+<h2>Regressions in <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#regressions-in-statsmodels" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> is the primary Python package for statistical analysis like regression. We’ll start by loading the <code class="docutils literal notranslate"><span class="pre">api</span></code> module, which provides a common way of specifying regressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll use the <code class="docutils literal notranslate"><span class="pre">WLS</span></code> function for weighted least squares, since our survey data is weighted. Let’s see what that looks like with tab completion</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type sm.WLS( and hit tab to see the documentation.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>OK, so the first argument is the outcome, for us that’ll be poverty status. The second is the regressors, and the third will be the weights.</p>
+<p>We’re going to try something that will throw an error, so we’ll use the <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> statement to ensure the notebook can fully run, this time also printing the error message we’d have gotten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">sm</span><span class="o">.</span><span class="n">WLS</span><span class="p">(</span><span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;poor&#39;</span><span class="p">],</span> <span class="n">cps8182</span><span class="p">[[</span><span class="s1">&#39;alaska&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;alaska_post&#39;</span><span class="p">]],</span>
+           <span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Huh, that’s a weird error. Let’s use the <code class="docutils literal notranslate"><span class="pre">SEARCH</span> <span class="pre">STACK</span> <span class="pre">OVERFLOW</span></code> feature to find a solution (only shows up in Colab if removing the <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> structure).</p>
+<p>…</p>
+<p>…</p>
+<p>OK, let’s multiply it by 1 to transform bools to integers and try again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps8182</span> <span class="o">*=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">WLS</span><span class="p">(</span><span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;poor&#39;</span><span class="p">],</span> <span class="n">cps8182</span><span class="p">[[</span><span class="s1">&#39;alaska&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;alaska_post&#39;</span><span class="p">]],</span>
+       <span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;statsmodels.regression.linear_model.WLS at 0x7ee1ef231ed0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>No error! But this just constructs the model, we now have to fit it.</p>
+<p>Let’s save the fitted model as an object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">WLS</span><span class="p">(</span><span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;poor&#39;</span><span class="p">],</span> <span class="n">cps8182</span><span class="p">[[</span><span class="s1">&#39;alaska_post&#39;</span><span class="p">,</span> <span class="s1">&#39;alaska&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">]],</span>
+            <span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see the results, use <code class="docutils literal notranslate"><span class="pre">.summary()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/home/mghenis/anaconda3/lib/python3.7/site-packages/statsmodels/regression/linear_model.py:762: RuntimeWarning: divide by zero encountered in log
+  llf += 0.5 * np.sum(np.log(self.weights))
+</pre>
+</div>
+<div class="output text_html"><table class="simpletable">
+<caption>WLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>poor</td>       <th>  R-squared (uncentered):</th>      <td>   0.108</td> 
+</tr>
+<tr>
+  <th>Model:</th>                   <td>WLS</td>       <th>  Adj. R-squared (uncentered):</th> <td>   0.108</td> 
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th>          <td>1.315e+04</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Mon, 22 Jun 2020</td> <th>  Prob (F-statistic):</th>           <td>  0.00</td>  
+</tr>
+<tr>
+  <th>Time:</th>                 <td>15:21:32</td>     <th>  Log-Likelihood:    </th>          <td>    -inf</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>324822</td>      <th>  AIC:               </th>          <td>     inf</td> 
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>324819</td>      <th>  BIC:               </th>          <td>     inf</td> 
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     3</td>      <th>                     </th>              <td> </td>    
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>              <td> </td>    
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+       <td></td>          <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>alaska_post</th> <td>   -0.2049</td> <td>    0.035</td> <td>   -5.830</td> <td> 0.000</td> <td>   -0.274</td> <td>   -0.136</td>
+</tr>
+<tr>
+  <th>alaska</th>      <td>    0.1702</td> <td>    0.025</td> <td>    6.735</td> <td> 0.000</td> <td>    0.121</td> <td>    0.220</td>
+</tr>
+<tr>
+  <th>post</th>        <td>    0.2099</td> <td>    0.001</td> <td>  198.363</td> <td> 0.000</td> <td>    0.208</td> <td>    0.212</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>73623.253</td> <th>  Durbin-Watson:     </th>  <td>   0.919</td> 
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th>  <td> 0.000</td>   <th>  Jarque-Bera (JB):  </th> <td>134763.634</td>
+</tr>
+<tr>
+  <th>Skew:</th>           <td> 1.493</td>   <th>  Prob(JB):          </th>  <td>    0.00</td> 
+</tr>
+<tr>
+  <th>Kurtosis:</th>       <td> 4.022</td>   <th>  Cond. No.          </th>  <td>    38.3</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+<p>Notice anything missing?</p>
+<p>One last step (for real!):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cps8182</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">cps8182</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">WLS</span><span class="p">(</span><span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;poor&#39;</span><span class="p">],</span> <span class="n">cps8182</span><span class="p">[[</span><span class="s1">&#39;alaska_post&#39;</span><span class="p">,</span> <span class="s1">&#39;alaska&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;const&#39;</span><span class="p">]],</span>
+            <span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">dd</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>WLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>poor</td>       <th>  R-squared:         </th> <td>   0.000</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>WLS</td>       <th>  Adj. R-squared:    </th> <td>   0.000</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   19.83</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Mon, 22 Jun 2020</td> <th>  Prob (F-statistic):</th> <td>7.61e-13</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>15:21:32</td>     <th>  Log-Likelihood:    </th> <td>    -inf</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>324822</td>      <th>  AIC:               </th> <td>     inf</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>324818</td>      <th>  BIC:               </th> <td>     inf</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     3</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+       <td></td>          <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>alaska_post</th> <td>   -0.0056</td> <td>    0.033</td> <td>   -0.167</td> <td> 0.867</td> <td>   -0.071</td> <td>    0.060</td>
+</tr>
+<tr>
+  <th>alaska</th>      <td>   -0.0292</td> <td>    0.024</td> <td>   -1.221</td> <td> 0.222</td> <td>   -0.076</td> <td>    0.018</td>
+</tr>
+<tr>
+  <th>post</th>        <td>    0.0106</td> <td>    0.001</td> <td>    7.468</td> <td> 0.000</td> <td>    0.008</td> <td>    0.013</td>
+</tr>
+<tr>
+  <th>const</th>       <td>    0.1993</td> <td>    0.001</td> <td>  198.459</td> <td> 0.000</td> <td>    0.197</td> <td>    0.201</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>75086.573</td> <th>  Durbin-Watson:     </th>  <td>   1.030</td> 
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th>  <td> 0.000</td>   <th>  Jarque-Bera (JB):  </th> <td>138951.112</td>
+</tr>
+<tr>
+  <th>Skew:</th>           <td> 1.553</td>   <th>  Prob(JB):          </th>  <td>    0.00</td> 
+</tr>
+<tr>
+  <th>Kurtosis:</th>       <td> 3.790</td>   <th>  Cond. No.          </th>  <td>    62.0</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+<p>Let’s add some controls.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dd_controls</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">WLS</span><span class="p">(</span><span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;poor&#39;</span><span class="p">],</span> 
+                     <span class="n">cps8182</span><span class="p">[[</span><span class="s1">&#39;alaska_post&#39;</span><span class="p">,</span> <span class="s1">&#39;alaska&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;age2&#39;</span><span class="p">,</span> <span class="s1">&#39;const&#39;</span><span class="p">]],</span>
+                     <span class="n">cps8182</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">dd_controls</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>WLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>poor</td>       <th>  R-squared:         </th> <td>   0.023</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>WLS</td>       <th>  Adj. R-squared:    </th> <td>   0.023</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   1271.</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Mon, 22 Jun 2020</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>15:21:32</td>     <th>  Log-Likelihood:    </th> <td>    -inf</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>324822</td>      <th>  AIC:               </th> <td>     inf</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>324815</td>      <th>  BIC:               </th> <td>     inf</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     6</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+       <td></td>          <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>alaska_post</th> <td>   -0.0034</td> <td>    0.033</td> <td>   -0.103</td> <td> 0.918</td> <td>   -0.068</td> <td>    0.061</td>
+</tr>
+<tr>
+  <th>alaska</th>      <td>   -0.0334</td> <td>    0.024</td> <td>   -1.415</td> <td> 0.157</td> <td>   -0.080</td> <td>    0.013</td>
+</tr>
+<tr>
+  <th>post</th>        <td>    0.0107</td> <td>    0.001</td> <td>    7.665</td> <td> 0.000</td> <td>    0.008</td> <td>    0.013</td>
+</tr>
+<tr>
+  <th>female</th>      <td>    0.0378</td> <td>    0.001</td> <td>   26.963</td> <td> 0.000</td> <td>    0.035</td> <td>    0.041</td>
+</tr>
+<tr>
+  <th>age</th>         <td>   -0.0087</td> <td>    0.000</td> <td>  -77.068</td> <td> 0.000</td> <td>   -0.009</td> <td>   -0.008</td>
+</tr>
+<tr>
+  <th>age2</th>        <td> 9.145e-05</td> <td>  1.4e-06</td> <td>   65.106</td> <td> 0.000</td> <td> 8.87e-05</td> <td> 9.42e-05</td>
+</tr>
+<tr>
+  <th>const</th>       <td>    0.3245</td> <td>    0.002</td> <td>  152.866</td> <td> 0.000</td> <td>    0.320</td> <td>    0.329</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>72868.469</td> <th>  Durbin-Watson:     </th>  <td>   1.053</td> 
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th>  <td> 0.000</td>   <th>  Jarque-Bera (JB):  </th> <td>132488.690</td>
+</tr>
+<tr>
+  <th>Skew:</th>           <td> 1.508</td>   <th>  Prob(JB):          </th>  <td>    0.00</td> 
+</tr>
+<tr>
+  <th>Kurtosis:</th>       <td> 3.830</td>   <th>  Cond. No.          </th>  <td>1.29e+05</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.29e+05. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</div>
+</div>
+<div class="section" id="publication-grade-regression-tables-in-stargazer">
+<h2>Publication-grade regression tables in <code class="docutils literal notranslate"><span class="pre">stargazer</span></code><a class="headerlink" href="#publication-grade-regression-tables-in-stargazer" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">stargazer</span></code> is a popular R package for creating <span class="math notranslate nohighlight">\(\LaTeX\)</span> regression tables,
+which has now been (mostly) ported to Python.</p>
+<p>To install the latest version, go straight to GitHub (also available other ways).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>try:
+    import stargazer
+except ImportError:
+    !pip install git+https://github.com/mwburke/stargazer.git    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stargazer</span> <span class="kn">import</span> <span class="n">stargazer</span> <span class="k">as</span> <span class="n">sg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sg</span><span class="o">.</span><span class="n">Stargazer</span><span class="p">([</span><span class="n">dd</span><span class="p">,</span> <span class="n">dd_controls</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:poor</em></td></tr><tr><td style="text-align:left"></td><tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">age</td><td></td><td>-0.009<sup>***</sup></td></tr><tr><td style="text-align:left"></td><td></td><td>(0.000)</td></tr><tr><td style="text-align:left">age2</td><td></td><td>0.000<sup>***</sup></td></tr><tr><td style="text-align:left"></td><td></td><td>(0.000)</td></tr><tr><td style="text-align:left">alaska</td><td>-0.029<sup></sup></td><td>-0.033<sup></sup></td></tr><tr><td style="text-align:left"></td><td>(0.024)</td><td>(0.024)</td></tr><tr><td style="text-align:left">alaska_post</td><td>-0.006<sup></sup></td><td>-0.003<sup></sup></td></tr><tr><td style="text-align:left"></td><td>(0.033)</td><td>(0.033)</td></tr><tr><td style="text-align:left">const</td><td>0.199<sup>***</sup></td><td>0.324<sup>***</sup></td></tr><tr><td style="text-align:left"></td><td>(0.001)</td><td>(0.002)</td></tr><tr><td style="text-align:left">female</td><td></td><td>0.038<sup>***</sup></td></tr><tr><td style="text-align:left"></td><td></td><td>(0.001)</td></tr><tr><td style="text-align:left">post</td><td>0.011<sup>***</sup></td><td>0.011<sup>***</sup></td></tr><tr><td style="text-align:left"></td><td>(0.001)</td><td>(0.001)</td></tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align: left">Observations</td><td>324822</td><td>324822</td></tr><tr><td style="text-align: left">R<sup>2</sup></td><td>0.000</td><td>0.023</td></tr><tr><td style="text-align: left">Adjusted R<sup>2</sup></td><td>0.000</td><td>0.023</td></tr><tr><td style="text-align: left">Residual Std. Error</td><td>15.115 (df=324818)</td><td>14.942 (df=324815)</td></tr><tr><td style="text-align: left">F Statistic</td><td>19.827<sup>***</sup> (df=3; 324818)</td><td>1270.719<sup>***</sup> (df=6; 324815)</td></tr><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align: left">Note:</td>
+ <td colspan="2" style="text-align: right">
+  <sup>*</sup>p&lt;0.1;
+  <sup>**</sup>p&lt;0.05;
+  <sup>***</sup>p&lt;0.01
+ </td></tr></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sg</span><span class="o">.</span><span class="n">Stargazer</span><span class="p">([</span><span class="n">dd</span><span class="p">,</span> <span class="n">dd_controls</span><span class="p">])</span><span class="o">.</span><span class="n">render_latex</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\\begin{table}[!htbp] \\centering\n  \\label{}\n\\begin{tabular}{llcc}\n\\\\[-1.8ex]\\hline\n\\hline \\\\[-1.8ex]\n&amp; \\multicolumn{2}{c}{\\textit{Dependent variable:}} \\\n\\cr \\cline{2-3}\n\\\\[-1.8ex] &amp; (1) &amp; (2) \\\\\n\\hline \\\\[-1.8ex]\n age &amp; &amp; -0.009$^{***}$ \\\\\n  &amp; &amp; (0.000) \\\\\n age2 &amp; &amp; 0.000$^{***}$ \\\\\n  &amp; &amp; (0.000) \\\\\n alaska &amp; -0.029$^{}$ &amp; -0.033$^{}$ \\\\\n  &amp; (0.024) &amp; (0.024) \\\\\n alaska_post &amp; -0.006$^{}$ &amp; -0.003$^{}$ \\\\\n  &amp; (0.033) &amp; (0.033) \\\\\n const &amp; 0.199$^{***}$ &amp; 0.324$^{***}$ \\\\\n  &amp; (0.001) &amp; (0.002) \\\\\n female &amp; &amp; 0.038$^{***}$ \\\\\n  &amp; &amp; (0.001) \\\\\n post &amp; 0.011$^{***}$ &amp; 0.011$^{***}$ \\\\\n  &amp; (0.001) &amp; (0.001) \\\\\n\\hline \\\\[-1.8ex]\n Observations &amp; 324822 &amp; 324822 \\\\\n R${2}$ &amp; 0.000 &amp; 0.023 \\\\\n Adjusted R${2}$ &amp; 0.000 &amp; 0.023 \\\\\n Residual Std. Error &amp; 15.115(df = 324818) &amp; 14.942(df = 324815)  \\\\\n F Statistic &amp; 19.827$^{***}$ (df = 3.0; 324818.0) &amp; 1270.719$^{***}$ (df = 6.0; 324815.0) \\\\\n\\hline\n\\hline \\\\[-1.8ex]\n\\textit{Note:} &amp; \\multicolumn{2}{r}{$^{*}$p$&lt;$0.1; $^{**}$p$&lt;$0.05; $^{***}$p$&lt;$0.01} \\\\\n\\end{tabular}\n\\end{table}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Welcome to Pythonomics</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Max Ghenis<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
