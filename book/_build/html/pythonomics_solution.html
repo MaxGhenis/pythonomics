@@ -64,9 +64,6 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="intro.html">Welcome to Pythonomics</a>
-  </li>
   <li class="active">
     <a href="">Pythonomics: Intro to economic analysis in Python</a>
   </li>
@@ -74,10 +71,6 @@
 </nav>
 
  <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
 
 </div>
 
@@ -123,6 +116,24 @@
 
         <!-- Source interaction buttons -->
         
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+                aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button"
+                    href="https://github.com/MaxGhenis/pythonomics"><button type="button" class="btn btn-secondary topbarbtn"
+                        data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                            class="fab fa-github"></i>repository</button></a>
+                <a class="issues-button"
+                    href="https://github.com/MaxGhenis/pythonomics/issues/new?title=Issue%20on%20page%20%2Fpythonomics_solution.html&body=Your%20issue%20content%20here."><button
+                        type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                        title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                <a class="edit-button" href="https://github.com/MaxGhenis/pythonomics/edit/master/book/pythonomics_solution.ipynb"><button
+                        type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                        title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -130,6 +141,28 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+                aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/MaxGhenis/pythonomics/master?urlpath=lab/tree/book/pythonomics_solution.ipynb"><button type="button"
+                        class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                        data-placement="left"><img class="binder-button-logo"
+                            src="_static/images/logo_binder.svg"
+                            alt="Interact on binder">Binder</button></a>
+                
+                
+                
+                <a class="colab-button" href="https://colab.research.google.com/github/MaxGhenis/pythonomics/blob/master/book/pythonomics_solution.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                        title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                            src="_static/images/logo_colab.png"
+                            alt="Interact on Colab">Colab</button></a>
+                
+                
+            </div>
+        </div>
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
@@ -191,6 +224,13 @@
     </ul>
 </nav>
 
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/MaxGhenis/pythonomics/edit/master/book/pythonomics_solution.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
 
     </div>
 </div>
